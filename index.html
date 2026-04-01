@@ -4,217 +4,159 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LIPE Center Detail</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{
- background:#030303;
- color:#fff;
- font-family:'Poppins',sans-serif;
-}
-
-h2{
- font-family:'Playfair Display';
- font-size:26px;
- margin-bottom:20px;
- text-align:center;
-}
-
-section{padding:70px 18px}
+body{background:#030303;color:#fff;font-family:'Inter',sans-serif}
+section{padding:80px 20px}
+h1,h2{font-family:'Playfair Display'}
 
 /* HERO */
-.hero{
- height:100vh;
- position:relative;
+.hero{height:100vh;position:relative}
+.hero iframe{
+ position:absolute;width:100%;height:100%;border:none;
+ filter:brightness(.35) contrast(1.3)
 }
-.hero video{
- position:absolute;
- width:100%;height:100%;
- object-fit:cover;
- filter:brightness(0.3) contrast(1.2);
+.hero::after{
+ content:"";position:absolute;width:100%;height:100%;
+ background:linear-gradient(180deg,transparent,#000)
 }
 .hero-content{
- position:relative;
- z-index:2;
- height:100%;
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- text-align:center;
+ position:relative;z-index:2;height:100%;
+ display:flex;flex-direction:column;justify-content:center;align-items:center;
+ text-align:center;padding:20px
 }
-.hero h2{
- font-size:34px;
- line-height:1.2;
-}
+.hero h1{font-size:40px;text-shadow:0 0 20px rgba(255,215,0,0.4)}
+.hero p{opacity:.7;margin-top:10px}
 
+/* BOTÃO GLOW */
 .btn{
- margin-top:25px;
- padding:14px 28px;
- border-radius:40px;
- border:1px solid rgba(255,215,0,0.6);
- color:gold;
- background:rgba(255,215,0,0.05);
- backdrop-filter:blur(10px);
- font-weight:500;
- letter-spacing:1px;
- transition:.4s;
- box-shadow:0 0 20px rgba(255,215,0,0.15);
+ margin-top:25px;padding:16px 32px;border-radius:50px;border:none;
+ background:linear-gradient(135deg,#FFD700,#b89600);
+ color:#000;font-weight:600;
+ box-shadow:0 0 30px rgba(255,215,0,0.6);
+ transition:.3s
 }
-.btn:hover{
- background:gold;
- color:#000;
- box-shadow:0 0 25px rgba(255,215,0,0.5);
-}
+.btn:hover{transform:scale(1.05)}
 
-/* SLIDER */
-.slider{
- position:relative;
- border-radius:15px;
- overflow:hidden;
- box-shadow:0 10px 40px rgba(0,0,0,0.8);
-}
-.slider img{width:100%;display:block}
-.slider .after{
- position:absolute;top:0;left:0;height:100%;width:50%;overflow:hidden
-}
-.slider input{
- width:100%;
- margin-top:15px;
-}
-
-/* CALENDAR */
-.calendar{
- background:linear-gradient(145deg,#0a0a0a,#111);
- border-radius:20px;
- padding:20px;
- box-shadow:0 0 30px rgba(0,0,0,0.6);
-}
-.calendar input{
- width:100%;
- padding:14px;
- margin-top:12px;
- border:none;
- border-radius:10px;
- background:#000;
- color:#fff;
- outline:none;
-}
-
-/* SERVICES */
-.services{
- display:flex;
- flex-direction:column;
- gap:15px;
-}
-.service-card{
- padding:20px;
- border-radius:15px;
- background:linear-gradient(145deg,#0c0c0c,#151515);
- box-shadow:0 0 20px rgba(0,0,0,0.7);
- transition:.4s;
-}
-.service-card:hover{
- transform:translateY(-5px);
- box-shadow:0 0 30px rgba(255,215,0,0.2);
-}
-
-/* TESTIMONIAL */
-.testimonial{
- background:rgba(255,255,255,0.04);
- border:1px solid rgba(255,255,255,0.08);
+/* VIDEO GLASS */
+.video-box{
+ border-radius:20px;overflow:hidden;
+ background:rgba(255,255,255,0.05);
  backdrop-filter:blur(12px);
- padding:18px;
- border-radius:15px;
- margin-bottom:10px;
- font-size:14px;
+ border:1px solid rgba(255,255,255,0.1);
+ box-shadow:0 0 40px rgba(255,215,0,0.1);
+}
+.video-box iframe{width:100%;height:250px;border:none}
+
+/* CARDS GLASS */
+.services{display:flex;flex-direction:column;gap:15px}
+.card{
+ padding:25px;border-radius:18px;
+ background:rgba(255,255,255,0.04);
+ backdrop-filter:blur(10px);
+ border:1px solid rgba(255,255,255,0.08);
+ box-shadow:0 0 30px rgba(255,215,0,0.08);
+ transition:.4s
+}
+.card:hover{
+ transform:translateY(-8px);
+ box-shadow:0 0 40px rgba(255,215,0,0.2)
 }
 
-/* MAP */
-iframe{
- width:100%;
- height:260px;
- border:none;
- border-radius:15px;
- box-shadow:0 0 20px rgba(0,0,0,0.6);
+/* TESTIMONIAL GLASS */
+.testimonial{
+ background:rgba(255,255,255,0.05);
+ backdrop-filter:blur(14px);
+ border:1px solid rgba(255,255,255,0.1);
+ padding:20px;border-radius:16px;margin-top:12px
+}
+
+/* CTA */
+.cta{
+ background:rgba(255,255,255,0.05);
+ backdrop-filter:blur(12px);
+ border:1px solid rgba(255,255,255,0.1);
+ padding:35px;border-radius:20px;text-align:center;
+ box-shadow:0 0 40px rgba(255,215,0,0.1)
 }
 
 /* WHATS */
 .whats{
- position:fixed;
- bottom:18px;
- right:18px;
- background:linear-gradient(145deg,gold,#caa400);
- color:#000;
- padding:16px;
- border-radius:50%;
- box-shadow:0 0 20px rgba(255,215,0,0.6);
- font-size:18px;
+ position:fixed;bottom:20px;right:20px;
+ background:linear-gradient(135deg,#FFD700,#b89600);
+ color:#000;padding:16px;border-radius:50%;
+ box-shadow:0 0 30px rgba(255,215,0,0.7)
 }
 
-/* DESKTOP */
 @media(min-width:768px){
-.hero h2{font-size:60px}
+.hero h1{font-size:65px}
 .services{flex-direction:row}
-.service-card{flex:1}
+.card{flex:1}
+.video-box iframe{height:400px}
 }
-
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <section class="hero">
-<video autoplay muted loop>
-<source src="https://cdn.coverr.co/videos/coverr-black-car-polishing-5174/1080p.mp4">
-</video>
+<iframe src="https://www.youtube.com/embed/hvV74pM31o0?start=5&autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=hvV74pM31o0"></iframe>
 <div class="hero-content">
-<h2>Detalhamento Automotivo de Luxo</h2>
-<button class="btn">Agendar Agora</button>
+<h1>Seu carro elevado ao nível máximo</h1>
+<p>Detalhamento automotivo de alto padrão</p>
+<button class="btn" onclick="abrirWhats()">Agendar Agora</button>
 </div>
 </section>
 
+<!-- VIDEO 2 -->
 <section>
-<h2>Antes / Depois</h2>
-<div class="slider">
-<img src="https://images.unsplash.com/photo-1483721310020-03333e577078">
-<div class="after" id="after">
-<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a">
-</div>
-</div>
-<input type="range" min="0" max="100" value="50" oninput="after.style.width=this.value+'%'">
-</section>
-
-<section>
-<h2>Agendamento Premium</h2>
-<div class="calendar">
-<input type="date">
-<input type="time">
-<button class="btn">Confirmar</button>
+<h2>Experiência Premium</h2>
+<div class="video-box">
+<iframe src="https://www.youtube.com/embed/Rd8yPKKgv48?start=5&autoplay=1&mute=1&controls=0&modestbranding=1"></iframe>
 </div>
 </section>
 
+<!-- SERVIÇOS -->
 <section>
 <h2>Serviços</h2>
 <div class="services">
-<div class="service-card">Polimento Técnico</div>
-<div class="service-card">Vitrificação Cerâmica</div>
-<div class="service-card">Detalhamento Interno</div>
+<div class="card"><b>Polimento Técnico</b><p>Brilho espelhado e correção total</p></div>
+<div class="card"><b>Vitrificação</b><p>Proteção cerâmica premium</p></div>
+<div class="card"><b>Detalhamento</b><p>Acabamento de alto nível</p></div>
 </div>
 </section>
 
+<!-- VIDEO 3 -->
 <section>
-<h2>Localização</h2>
-<iframe src="https://maps.google.com/maps?q=-29.829,-51.144&z=15&output=embed"></iframe>
+<h2>Resultados Reais</h2>
+<div class="video-box">
+<iframe src="https://www.youtube.com/embed/9JfFt3t7OfE?start=5&autoplay=1&mute=1&controls=0&modestbranding=1"></iframe>
+</div>
 </section>
 
+<!-- DEPOIMENTOS -->
 <section>
-<h2>Depoimentos</h2>
-<div class="testimonial">"Meu carro virou outro nível"</div>
-<div class="testimonial">"Atendimento e qualidade absurdos"</div>
+<h2>Clientes</h2>
+<div class="testimonial">"Meu carro ficou surreal"</div>
+<div class="testimonial">"Padrão de luxo de verdade"</div>
 </section>
 
-<div class="whats">💬</div>
+<!-- CTA -->
+<section>
+<div class="cta">
+<h2>Agende agora</h2>
+<p>Vagas limitadas por dia</p>
+<button class="btn" onclick="abrirWhats()">WhatsApp</button>
+</div>
+</section>
+
+<div class="whats" onclick="abrirWhats()">💬</div>
+
+<script>
+function abrirWhats(){window.open('https://wa.me/5599999999999')}
+</script>
 
 </body>
 </html>
