@@ -13,105 +13,46 @@ section{padding:60px 18px}
 
 h1,h2{font-family:'Orbitron',sans-serif}
 
-/* HERO VIVO */
+/* HERO FULL MOBILE */
 .hero{
- height:100vh;position:relative;overflow:hidden
+ height:100vh;width:100%;position:relative;overflow:hidden
 }
 .hero iframe{
- position:absolute;width:100%;height:100%;border:none;
- filter:brightness(.4) saturate(1.2)
+ position:absolute;top:0;left:0;width:100vw;height:100vh;
+ border:none;object-fit:cover;
+ transform:scale(1.2);
+ filter:brightness(.5)
 }
 .hero::before{
  content:"";position:absolute;width:100%;height:100%;
  background:radial-gradient(circle,rgba(255,215,0,.2),transparent 60%);
- animation:pulse 4s infinite
-}
-@keyframes pulse{
- 0%{opacity:.3}
- 50%{opacity:.7}
- 100%{opacity:.3}
 }
 .hero-content{
  position:relative;z-index:2;height:100%;
  display:flex;flex-direction:column;justify-content:center;align-items:center;
  text-align:center
 }
-.hero h1{
- font-size:34px;line-height:1.2;
- text-shadow:0 0 25px rgba(255,215,0,.8)
-}
+.hero h1{font-size:34px;text-shadow:0 0 25px rgba(255,215,0,.8)}
 
-/* BOTÃO VIVO */
 .btn{
  margin-top:25px;padding:16px 28px;
  border:none;border-radius:50px;
  background:linear-gradient(135deg,#FFD700,#ffae00);
  color:#000;font-weight:600;
- box-shadow:0 0 20px #FFD700,0 0 40px rgba(255,215,0,.6);
- animation:glow 2s infinite alternate
-}
-@keyframes glow{
- from{box-shadow:0 0 10px #FFD700}
- to{box-shadow:0 0 30px #FFD700}
+ box-shadow:0 0 25px #FFD700;
 }
 
-/* CARDS INTERATIVOS */
-.services{display:flex;flex-direction:column;gap:15px}
-.card{
- padding:22px;border-radius:18px;
- background:linear-gradient(145deg,#0a0a0a,#111);
- border:1px solid rgba(255,215,0,.2);
- box-shadow:0 0 20px rgba(255,215,0,.15);
- transform:scale(1);
- transition:.3s
-}
-.card:active{transform:scale(.97)}
-
-/* VIDEO COM VIDA */
-.video-box{
- border-radius:18px;overflow:hidden;
- box-shadow:0 0 40px rgba(255,215,0,.2);
- transform:translateY(30px);
- opacity:0;transition:1s
-}
-.video-box.show{transform:translateY(0);opacity:1}
+.video-box{border-radius:18px;overflow:hidden}
 .video-box iframe{width:100%;height:220px;border:none}
 
-/* DEPOIMENTO */
-.testimonial{
- margin-top:15px;padding:18px;border-radius:14px;
- background:rgba(255,255,255,.05);
- backdrop-filter:blur(10px);
- border:1px solid rgba(255,215,0,.2);
- animation:fadeUp 1s
-}
+.services{display:flex;flex-direction:column;gap:15px}
+.card{padding:22px;border-radius:18px;background:#111;border:1px solid rgba(255,215,0,.2)}
 
-/* CTA */
-.cta{
- padding:30px;border-radius:20px;
- background:linear-gradient(145deg,#111,#000);
- text-align:center;
- box-shadow:0 0 30px rgba(255,215,0,.2)
-}
+.testimonial{margin-top:15px;padding:18px;border-radius:14px;background:rgba(255,255,255,.05)}
 
-/* FLOAT */
-.whats{
- position:fixed;bottom:20px;right:20px;
- background:#FFD700;color:#000;padding:18px;border-radius:50%;
- box-shadow:0 0 25px #FFD700;
- animation:float 2s infinite
-}
-@keyframes float{
- 0%,100%{transform:translateY(0)}
- 50%{transform:translateY(-6px)}
-}
+.cta{padding:30px;border-radius:20px;background:#111;text-align:center}
 
-/* ANIMAÇÃO */
-.fade{
- opacity:0;transform:translateY(40px);
- transition:1s
-}
-.fade.show{opacity:1;transform:translateY(0)}
+.whats{position:fixed;bottom:20px;right:20px;background:#FFD700;color:#000;padding:18px;border-radius:50%}
 
 @media(min-width:768px){
 .hero h1{font-size:60px}
@@ -123,24 +64,24 @@ h1,h2{font-family:'Orbitron',sans-serif}
 </head>
 <body>
 
-<!-- HERO -->
+<!-- HERO (AGORA VIDEO 2 COM SOM) -->
 <section class="hero">
-<iframe src="https://www.youtube.com/embed/hvV74pM31o0?start=5&autoplay=1&mute=1&controls=0&loop=1&playlist=hvV74pM31o0"></iframe>
+<iframe src="https://www.youtube.com/embed/Rd8yPKKgv48?start=5&autoplay=1&controls=0&loop=1&playlist=Rd8yPKKgv48"></iframe>
 <div class="hero-content">
-<h1>LIPE Center Detail</h1>
+<h1>Transformação Automotiva Premium</h1>
 <button class="btn" onclick="abrirWhats()">Agendar Agora</button>
 </div>
 </section>
 
-<!-- VIDEO -->
-<section class="fade">
+<!-- VIDEO 3 -->
+<section>
 <div class="video-box">
-<iframe src="https://www.youtube.com/embed/Rd8yPKKgv48?start=5&autoplay=1&mute=1&controls=0"></iframe>
+<iframe src="https://www.youtube.com/embed/9JfFt3t7OfE?start=5&autoplay=1&mute=1&controls=0"></iframe>
 </div>
 </section>
 
 <!-- SERVIÇOS -->
-<section class="fade">
+<section>
 <h2>Serviços</h2>
 <div class="services">
 <div class="card">Polimento Técnico</div>
@@ -149,22 +90,22 @@ h1,h2{font-family:'Orbitron',sans-serif}
 </div>
 </section>
 
-<!-- VIDEO 2 -->
-<section class="fade">
+<!-- VIDEO 1 -->
+<section>
 <div class="video-box">
-<iframe src="https://www.youtube.com/embed/9JfFt3t7OfE?start=5&autoplay=1&mute=1&controls=0"></iframe>
+<iframe src="https://www.youtube.com/embed/hvV74pM31o0?start=5&autoplay=1&mute=1&controls=0"></iframe>
 </div>
 </section>
 
 <!-- DEPOIMENTOS -->
-<section class="fade">
+<section>
 <h2>Clientes</h2>
 <div class="testimonial">"Melhor estética que já fui"</div>
 <div class="testimonial">"Resultado absurdo"</div>
 </section>
 
 <!-- CTA -->
-<section class="fade">
+<section>
 <div class="cta">
 <h2>Agenda aberta</h2>
 <button class="btn" onclick="abrirWhats()">Chamar no WhatsApp</button>
@@ -175,20 +116,6 @@ h1,h2{font-family:'Orbitron',sans-serif}
 
 <script>
 function abrirWhats(){window.open('https://wa.me/5599999999999')}
-
-const fades=document.querySelectorAll('.fade')
-window.addEventListener('scroll',()=>{
-fades.forEach(el=>{
-if(el.getBoundingClientRect().top<window.innerHeight-50){el.classList.add('show')}
-})
-})
-
-const videos=document.querySelectorAll('.video-box')
-window.addEventListener('scroll',()=>{
-videos.forEach(v=>{
-if(v.getBoundingClientRect().top<window.innerHeight-50){v.classList.add('show')}
-})
-})
 </script>
 
 </body>
