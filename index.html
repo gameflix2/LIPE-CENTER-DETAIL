@@ -4,97 +4,120 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LIPE Center Detail</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#030303;color:#fff;font-family:'Inter',sans-serif}
-section{padding:80px 20px}
-h1,h2{font-family:'Playfair Display'}
+body{background:#000;color:#fff;font-family:'Inter',sans-serif}
+section{padding:60px 18px}
 
-/* HERO */
-.hero{height:100vh;position:relative}
+h1,h2{font-family:'Orbitron',sans-serif}
+
+/* HERO VIVO */
+.hero{
+ height:100vh;position:relative;overflow:hidden
+}
 .hero iframe{
  position:absolute;width:100%;height:100%;border:none;
- filter:brightness(.35) contrast(1.3)
+ filter:brightness(.4) saturate(1.2)
 }
-.hero::after{
+.hero::before{
  content:"";position:absolute;width:100%;height:100%;
- background:linear-gradient(180deg,transparent,#000)
+ background:radial-gradient(circle,rgba(255,215,0,.2),transparent 60%);
+ animation:pulse 4s infinite
+}
+@keyframes pulse{
+ 0%{opacity:.3}
+ 50%{opacity:.7}
+ 100%{opacity:.3}
 }
 .hero-content{
  position:relative;z-index:2;height:100%;
  display:flex;flex-direction:column;justify-content:center;align-items:center;
- text-align:center;padding:20px
+ text-align:center
 }
-.hero h1{font-size:40px;text-shadow:0 0 20px rgba(255,215,0,0.4)}
-.hero p{opacity:.7;margin-top:10px}
+.hero h1{
+ font-size:34px;line-height:1.2;
+ text-shadow:0 0 25px rgba(255,215,0,.8)
+}
 
-/* BOTÃO GLOW */
+/* BOTÃO VIVO */
 .btn{
- margin-top:25px;padding:16px 32px;border-radius:50px;border:none;
- background:linear-gradient(135deg,#FFD700,#b89600);
+ margin-top:25px;padding:16px 28px;
+ border:none;border-radius:50px;
+ background:linear-gradient(135deg,#FFD700,#ffae00);
  color:#000;font-weight:600;
- box-shadow:0 0 30px rgba(255,215,0,0.6);
- transition:.3s
+ box-shadow:0 0 20px #FFD700,0 0 40px rgba(255,215,0,.6);
+ animation:glow 2s infinite alternate
 }
-.btn:hover{transform:scale(1.05)}
-
-/* VIDEO GLASS */
-.video-box{
- border-radius:20px;overflow:hidden;
- background:rgba(255,255,255,0.05);
- backdrop-filter:blur(12px);
- border:1px solid rgba(255,255,255,0.1);
- box-shadow:0 0 40px rgba(255,215,0,0.1);
+@keyframes glow{
+ from{box-shadow:0 0 10px #FFD700}
+ to{box-shadow:0 0 30px #FFD700}
 }
-.video-box iframe{width:100%;height:250px;border:none}
 
-/* CARDS GLASS */
+/* CARDS INTERATIVOS */
 .services{display:flex;flex-direction:column;gap:15px}
 .card{
- padding:25px;border-radius:18px;
- background:rgba(255,255,255,0.04);
- backdrop-filter:blur(10px);
- border:1px solid rgba(255,255,255,0.08);
- box-shadow:0 0 30px rgba(255,215,0,0.08);
- transition:.4s
+ padding:22px;border-radius:18px;
+ background:linear-gradient(145deg,#0a0a0a,#111);
+ border:1px solid rgba(255,215,0,.2);
+ box-shadow:0 0 20px rgba(255,215,0,.15);
+ transform:scale(1);
+ transition:.3s
 }
-.card:hover{
- transform:translateY(-8px);
- box-shadow:0 0 40px rgba(255,215,0,0.2)
-}
+.card:active{transform:scale(.97)}
 
-/* TESTIMONIAL GLASS */
+/* VIDEO COM VIDA */
+.video-box{
+ border-radius:18px;overflow:hidden;
+ box-shadow:0 0 40px rgba(255,215,0,.2);
+ transform:translateY(30px);
+ opacity:0;transition:1s
+}
+.video-box.show{transform:translateY(0);opacity:1}
+.video-box iframe{width:100%;height:220px;border:none}
+
+/* DEPOIMENTO */
 .testimonial{
- background:rgba(255,255,255,0.05);
- backdrop-filter:blur(14px);
- border:1px solid rgba(255,255,255,0.1);
- padding:20px;border-radius:16px;margin-top:12px
+ margin-top:15px;padding:18px;border-radius:14px;
+ background:rgba(255,255,255,.05);
+ backdrop-filter:blur(10px);
+ border:1px solid rgba(255,215,0,.2);
+ animation:fadeUp 1s
 }
 
 /* CTA */
 .cta{
- background:rgba(255,255,255,0.05);
- backdrop-filter:blur(12px);
- border:1px solid rgba(255,255,255,0.1);
- padding:35px;border-radius:20px;text-align:center;
- box-shadow:0 0 40px rgba(255,215,0,0.1)
+ padding:30px;border-radius:20px;
+ background:linear-gradient(145deg,#111,#000);
+ text-align:center;
+ box-shadow:0 0 30px rgba(255,215,0,.2)
 }
 
-/* WHATS */
+/* FLOAT */
 .whats{
  position:fixed;bottom:20px;right:20px;
- background:linear-gradient(135deg,#FFD700,#b89600);
- color:#000;padding:16px;border-radius:50%;
- box-shadow:0 0 30px rgba(255,215,0,0.7)
+ background:#FFD700;color:#000;padding:18px;border-radius:50%;
+ box-shadow:0 0 25px #FFD700;
+ animation:float 2s infinite
+}
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-6px)}
 }
 
+/* ANIMAÇÃO */
+.fade{
+ opacity:0;transform:translateY(40px);
+ transition:1s
+}
+.fade.show{opacity:1;transform:translateY(0)}
+
 @media(min-width:768px){
-.hero h1{font-size:65px}
+.hero h1{font-size:60px}
+.video-box iframe{height:400px}
 .services{flex-direction:row}
 .card{flex:1}
-.video-box iframe{height:400px}
 }
 </style>
 </head>
@@ -102,53 +125,49 @@ h1,h2{font-family:'Playfair Display'}
 
 <!-- HERO -->
 <section class="hero">
-<iframe src="https://www.youtube.com/embed/9JfFt3t7OfE?start=5&autoplay=1&mute=1&controls=0&modestbranding=1"></iframe>
+<iframe src="https://www.youtube.com/embed/hvV74pM31o0?start=5&autoplay=1&mute=1&controls=0&loop=1&playlist=hvV74pM31o0"></iframe>
 <div class="hero-content">
-<h1>Seu carro elevado ao nível máximo</h1>
-<p>Detalhamento automotivo de alto padrão</p>
+<h1>Transformação Automotiva Premium</h1>
 <button class="btn" onclick="abrirWhats()">Agendar Agora</button>
 </div>
 </section>
 
-<!-- VIDEO 2 -->
-<section>
-<h2>Experiência Premium</h2>
+<!-- VIDEO -->
+<section class="fade">
 <div class="video-box">
-<iframe src="https://www.youtube.com/embed/hvV74pM31o0?start=5&autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=hvV74pM31o0"></iframe>
+<iframe src="https://www.youtube.com/embed/Rd8yPKKgv48?start=5&autoplay=1&mute=1&controls=0"></iframe>
 </div>
 </section>
 
 <!-- SERVIÇOS -->
-<section>
+<section class="fade">
 <h2>Serviços</h2>
 <div class="services">
-<div class="card"><b>Polimento Técnico</b><p>Brilho espelhado e correção total</p></div>
-<div class="card"><b>Vitrificação</b><p>Proteção cerâmica premium</p></div>
-<div class="card"><b>Detalhamento</b><p>Acabamento de alto nível</p></div>
+<div class="card">Polimento Técnico</div>
+<div class="card">Vitrificação</div>
+<div class="card">Detalhamento</div>
 </div>
 </section>
 
-<!-- VIDEO 3 -->
-<section>
-<h2>Resultados Reais</h2>
+<!-- VIDEO 2 -->
+<section class="fade">
 <div class="video-box">
-<iframe src="https://www.youtube.com/embed/Rd8yPKKgv48?start=5&autoplay=1&mute=1&controls=0&modestbranding=1"></iframe>
+<iframe src="https://www.youtube.com/embed/9JfFt3t7OfE?start=5&autoplay=1&mute=1&controls=0"></iframe>
 </div>
 </section>
 
 <!-- DEPOIMENTOS -->
-<section>
+<section class="fade">
 <h2>Clientes</h2>
-<div class="testimonial">"Meu carro ficou surreal"</div>
-<div class="testimonial">"Padrão de luxo de verdade"</div>
+<div class="testimonial">"Melhor estética que já fui"</div>
+<div class="testimonial">"Resultado absurdo"</div>
 </section>
 
 <!-- CTA -->
-<section>
+<section class="fade">
 <div class="cta">
-<h2>Agende agora</h2>
-<p>Vagas limitadas por dia</p>
-<button class="btn" onclick="abrirWhats()">WhatsApp</button>
+<h2>Agenda aberta</h2>
+<button class="btn" onclick="abrirWhats()">Chamar no WhatsApp</button>
 </div>
 </section>
 
@@ -156,6 +175,20 @@ h1,h2{font-family:'Playfair Display'}
 
 <script>
 function abrirWhats(){window.open('https://wa.me/5599999999999')}
+
+const fades=document.querySelectorAll('.fade')
+window.addEventListener('scroll',()=>{
+fades.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-50){el.classList.add('show')}
+})
+})
+
+const videos=document.querySelectorAll('.video-box')
+window.addEventListener('scroll',()=>{
+videos.forEach(v=>{
+if(v.getBoundingClientRect().top<window.innerHeight-50){v.classList.add('show')}
+})
+})
 </script>
 
 </body>
