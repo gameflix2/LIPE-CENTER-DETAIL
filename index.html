@@ -3,56 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIPE Center Detail</title>
+<title>LIPE CENTER DETAIL</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;font-family:'Inter',sans-serif}
+body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
 
+h1,h2{font-family:'Orbitron'}
 section{padding:60px 18px}
-h1,h2{font-family:'Orbitron',sans-serif}
 
-/* HERO COM SHORT */
+/* HERO REELS */
 .hero{
  height:100vh;
- position:relative;
+ width:100%;
  overflow:hidden;
-}
-
-/* SHORT AJUSTADO (vertical preenchendo tela) */
-.hero iframe{
- position:absolute;
- top:50%;
- left:50%;
- width:100vh;
- height:100vw;
- transform:translate(-50%,-50%) rotate(90deg) scale(1.3);
- border:none;
- filter:brightness(.5);
-}
-
-/* CONTEÚDO POR CIMA */
-.hero-content{
  position:relative;
- z-index:2;
+}
+
+.reels{
+ display:flex;
+ height:100%;
+ width:300vw;
+ transition:.5s;
+}
+
+.reel{
+ width:100vw;
+ height:100vh;
+ position:relative;
+}
+
+.reel iframe{
+ width:100%;
+ height:100%;
+ border:none;
+ object-fit:cover;
+ filter:brightness(.6);
+}
+
+/* TEXTO SOBRE VIDEO */
+.overlay{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
  height:100%;
  display:flex;
  flex-direction:column;
  justify-content:center;
  align-items:center;
  text-align:center;
+ z-index:2;
 }
 
-.hero h1{
- font-size:34px;
+.overlay h1{
+ font-size:32px;
  text-shadow:0 0 25px rgba(255,215,0,.8);
 }
 
-/* BOTÃO */
 .btn{
- margin-top:25px;
+ margin-top:20px;
  padding:16px 28px;
  border:none;
  border-radius:50px;
@@ -62,74 +74,86 @@ h1,h2{font-family:'Orbitron',sans-serif}
  box-shadow:0 0 25px #FFD700;
 }
 
+/* INDICADOR */
+.dots{
+ position:absolute;
+ bottom:20px;
+ left:50%;
+ transform:translateX(-50%);
+ display:flex;
+ gap:8px;
+}
+
+.dot{
+ width:10px;
+ height:10px;
+ border-radius:50%;
+ background:#fff3;
+}
+.dot.active{background:#FFD700}
+
 /* RESTO */
 .video-box{border-radius:18px;overflow:hidden}
 .video-box iframe{width:100%;height:220px;border:none}
 
 .services{display:flex;flex-direction:column;gap:15px}
-.card{
- padding:22px;
- border-radius:18px;
- background:#111;
- border:1px solid rgba(255,215,0,.2)
-}
+.card{padding:22px;border-radius:18px;background:#111;border:1px solid rgba(255,215,0,.2)}
 
-.testimonial{
- margin-top:15px;
- padding:18px;
- border-radius:14px;
- background:rgba(255,255,255,.05)
-}
+.testimonial{margin-top:15px;padding:18px;border-radius:14px;background:rgba(255,255,255,.05)}
 
-.cta{
- padding:30px;
- border-radius:20px;
- background:#111;
- text-align:center
-}
+.cta{padding:30px;border-radius:20px;background:#111;text-align:center}
 
-.whats{
- position:fixed;
- bottom:20px;
- right:20px;
- background:#FFD700;
- color:#000;
- padding:18px;
- border-radius:50%
-}
+.whats{position:fixed;bottom:20px;right:20px;background:#FFD700;color:#000;padding:18px;border-radius:50%}
 
 @media(min-width:768px){
-.hero h1{font-size:60px}
+.overlay h1{font-size:55px}
 .video-box iframe{height:400px}
 .services{flex-direction:row}
 .card{flex:1}
 }
 </style>
 </head>
-
 <body>
 
-<!-- HERO CORRETO -->
+<!-- HERO REELS -->
 <section class="hero">
-  <iframe 
-  src="https://www.youtube.com/embed/DhGnceFJM6k?start=5&autoplay=1&mute=1&controls=0&loop=1&playlist=DhGnceFJM6k"
-  allow="autoplay">
-  </iframe>
 
-  <div class="hero-content">
-    <h1>Transformação Automotiva Premium</h1>
-    <button class="btn" onclick="abrirWhats()">Agendar Agora</button>
-  </div>
+<div class="reels" id="reels">
+
+<div class="reel">
+<iframe src="https://www.youtube.com/embed/DhGnceFJM6k?start=5&autoplay=1&mute=1&controls=0&loop=1&playlist=DhGnceFJM6k"></iframe>
+</div>
+
+<div class="reel">
+<iframe src="https://www.youtube.com/embed/Rd8yPKKgv48?start=5&autoplay=1&mute=1&controls=0&loop=1&playlist=Rd8yPKKgv48"></iframe>
+</div>
+
+<div class="reel">
+<iframe src="https://www.youtube.com/embed/9JfFt3t7OfE?start=5&autoplay=1&mute=1&controls=0&loop=1&playlist=9JfFt3t7OfE"></iframe>
+</div>
+
+</div>
+
+<div class="overlay">
+<h1>LIPE CENTER DETAIL</h1>
+<button class="btn" onclick="abrirWhats()">Agendar Agora</button>
+</div>
+
+<div class="dots">
+<div class="dot active"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+
 </section>
 
-<!-- VIDEO 3 -->
+<!-- RESTO IGUAL -->
 <section>
 <div class="video-box">
-<iframe src="https://www.youtube.com/embed/9JfFt3t7OfE?start=5&autoplay=1&mute=1&controls=0"></iframe>
+<iframe src="https://www.youtube.com/embed/hvV74pM31o0?start=5&autoplay=1&mute=1&controls=0"></iframe>
 </div>
 </section>
 
-<!-- SERVIÇOS -->
 <section>
 <h2>Serviços</h2>
 <div class="services">
@@ -139,21 +163,12 @@ h1,h2{font-family:'Orbitron',sans-serif}
 </div>
 </section>
 
-<!-- VIDEO 1 -->
-<section>
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed/hvV74pM31o0?start=5&autoplay=1&mute=1&controls=0"></iframe>
-</div>
-</section>
-
-<!-- DEPOIMENTOS -->
 <section>
 <h2>Clientes</h2>
 <div class="testimonial">"Melhor estética que já fui"</div>
 <div class="testimonial">"Resultado absurdo"</div>
 </section>
 
-<!-- CTA -->
 <section>
 <div class="cta">
 <h2>Agenda aberta</h2>
@@ -164,9 +179,34 @@ h1,h2{font-family:'Orbitron',sans-serif}
 <div class="whats" onclick="abrirWhats()">💬</div>
 
 <script>
-function abrirWhats(){
- window.open('https://wa.me/5599999999999')
-}
+function abrirWhats(){window.open('https://wa.me/5599999999999')}
+
+// REELS SWIPE
+let current=0
+const reels=document.getElementById('reels')
+const dots=document.querySelectorAll('.dot')
+
+let startX=0
+
+document.querySelector('.hero').addEventListener('touchstart',e=>{
+ startX=e.touches[0].clientX
+})
+
+document.querySelector('.hero').addEventListener('touchend',e=>{
+ let endX=e.changedTouches[0].clientX
+
+ if(startX - endX > 50){
+  if(current<2) current++
+ }
+ if(endX - startX > 50){
+  if(current>0) current--
+ }
+
+ reels.style.transform=`translateX(-${current*100}vw)`
+
+ dots.forEach(d=>d.classList.remove('active'))
+ dots[current].classList.add('active')
+})
 </script>
 
 </body>
